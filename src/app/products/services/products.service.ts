@@ -9,15 +9,15 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
   getAllProducts(){
-    return  this.http.get(environment.baseUrl+"products")
+    return  this.http.get((environment as any).baseUrl+"products")
   }
   getProductByCatName(cName:string){
-    return this.http.get(environment.baseUrl+"products/category/"+cName)
+    return this.http.get((environment as any).baseUrl+"products/category/"+cName)
   }
   getAllCategories(){
-    return  this.http.get(environment.baseUrl+"products/categories")
+    return  this.http.get((environment as any).baseUrl+"products/categories")
   }
   getSingleProduct(id:number){
-    return this.http.get(environment.baseUrl+"products/"+String(id))
+    return this.http.get((environment as any).baseUrl+"products/"+String(id))
   }
 }
