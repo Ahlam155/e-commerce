@@ -1,0 +1,44 @@
+
+ body{
+  background:#E0E0E0;
+  box-sizing: border-box;
+}
+
+.all{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+
+@media (min-width: 1400px){
+  .all{
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+
+  }
+}
+
+@media (min-width:768px){
+  .all{
+    gap: 40px;
+    justify-content: space-between;
+
+  }
+}
+@media (max-width:767px){
+  .all{
+    gap: 20px;
+    justify-content: center;
+
+  }
+}
+@media (min-width: 1200px){
+  .all{
+    width: 100%;
+    justify-content: flex-start;
+    gap: 30px 77px;
+
+  }
+}

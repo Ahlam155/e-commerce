@@ -1,0 +1,25 @@
+<div class="container">
+<ng-container *ngIf="!showSnipper else hide">
+  <div class="card" style="width: 25rem; margin:100px auto ;">
+    <img width="200px" height="200px" style="margin:10px auto ;" [src]="product.image" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Product Price: {{product?.price}}</li>
+      <li class="list-group-item">Product Quantity: {{product.rating.count}}</li>
+      <li class="list-group-item">Product Description: {{product.description}}</li>
+
+    </ul>
+    <div class="card-body">
+      <button class="btn back " style="margin-right:10px;" (click)="back()">Go Back</button>
+    </div>
+  </div>
+
+</ng-container>
+<ng-template #hide>
+  <div class="snipper" style="width: 100%;display: flex;">
+    <app-spinner style=" margin:100px auto ;"></app-spinner>
+    </div>
+  </ng-template>
+</div>

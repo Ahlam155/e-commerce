@@ -1,0 +1,8 @@
+<div class="mb-3 w-25">
+  <label for="prdCat" class="form-label">{{title}}</label>
+  <select class="form-control" aria-label="Default select example" (change)="detectChanges($event)">
+    <option value="All" selected>All</option>
+
+    <option [value]="val" *ngFor="let val of allValues" >{{val}}</option>
+  </select>
+</div>

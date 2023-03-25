@@ -1,0 +1,44 @@
+<div class="table-responsive container">
+  <h1 style="margin-block:30px">Shopping Cart</h1>
+  <table class="table align-middle">
+    <thead class="bg-dark" style="color:white">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Count</th>
+        <th scope="col">Total</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let carts of cartProducts" >
+        <tr>
+          <td>{{carts.title}}</td>
+          <td><img [src]="carts.image" width="70px" height="70px"></td>
+          <td>{{carts.category}}</td>
+          <td>{{carts.price}}</td>
+          <td><input type="number" [value]="carts.selectedQuantinty" min="1" [max]="carts.rating.count" [ngModel]="carts.selectedQuantinty" (ngModelChange)="onChange(carts,$event)"></td>
+          <td>{{carts.price * carts.selectedQuantinty |currency:'USD':'symbol'}}</td>
+          <td><button class="btn del" (click)="remove(carts)">Delete</button> </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <div class="container" style="display:flex; justify-content: space-between;">
+
+    <h4 style="display: flex;justify-content: center;align-items: center;">total price: {{totalPrice |currency:'USD':'symbol'}}</h4>
+    <div class="wrapper">
+    <button class="glow-on-hover" [disabled]="click" type="button" (click)="order()">Order</button>
+    <button class="glow-on-hover" type="button" (click)="removeAll()">Delete All</button>
+    </div>
+
+  </div>
+  <div *ngIf="success" class="alert alert-info" role="alert">
+    Your Order is sent successfully
+  </div>
+
+</div>
+
+
